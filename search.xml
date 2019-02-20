@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[test]]></title>
+    <url>%2F2019%2F02%2F20%2Ftest%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>express</tag>
+      </tags>
+  </entry>
+</search>
