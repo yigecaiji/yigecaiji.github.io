@@ -2,13 +2,13 @@
 <search>
   <entry>
     <title><![CDATA[test]]></title>
-    <url>%2F2019%2F02%2F20%2Ftest%2F</url>
-    <content type="text"></content>
+    <url>%2F2019%2F02%2F21%2Ftest%2F</url>
+    <content type="text"><![CDATA[折腾了一下午，总算是搞定了，吓得我赶紧来测试一下！]]></content>
       <categories>
-        <category>学习笔记</category>
+        <category>随笔</category>
       </categories>
       <tags>
-        <tag>express</tag>
+        <tag>test</tag>
       </tags>
   </entry>
 </search>
