@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[闭包与回调]]></title>
+    <url>%2F2019%2F03%2F03%2F%E9%97%AD%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[轻松理解函数闭包与回调复习的时候看到闭包这里，突然蒙了一下，只能去百度，然后看见一大堆答案说的天花乱坠还不好理解，因此结合百度答案，写一下自己粗浅的理解 函数闭包 什么是闭包： 函数A中存在一个函数B,函数B可以访问函数A中定义的变量和数据，这时候就形成了闭包 为什么要有闭包： 一般函数在执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域的变量数据，而闭包可以把这些数据缓存起来 闭包的优势： 不依赖全局变量也可以进行可以数据缓存 闭包的劣势： 数据缓存,局部变量驻留在内存中，增大内存的消耗 12345678910111213//这是一个最简单的闭包function f1() &#123; var num=10; return function () &#123; return num++; &#125;&#125;var fn= f1();console.log(fn());//10console.log(fn());//11console.log(fn());//12//局部变量是在函数中,函数使用结束后,局部变量会被自动释放//但是闭包后,里面的局部变量就会被写入内存，使用作用域链就会被延长 回调函数 什么是回调函数 函数A中传入一个函数B，通过B去使用A中的变量与数据 为什么要回调 异步编程中，A函数与B函数同时发生，当B函数的执行依赖于A函数中的数据结果时，要通过回调使用，否则无法拿到数据 12345678910111213141516171819202122232425262728var ifunction f1()&#123; for (i = 0; i &lt;10; i++) &#123; console.log(i); &#125;&#125;function f2()&#123; i++; //此时拿到的i已经是循环完成之后的i ，即已经为10 console.log(i);//11&#125;f1()f2()=======================var ifunction f1(fn)&#123; for (i = 0; i &lt;10; i++) &#123; fn(); &#125;&#125;function f2()&#123; i++; console.log(i);//1,3,5,7,9&#125;f1(f2)//将函数传递进去执行相应逻辑，就是回调的思想。也就是不单单去向你索要数据，而是直接告诉你，你的数据要如何操作，这样就解决了异步操作的问题]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用node.js制作命令行工具]]></title>
     <url>%2F2019%2F02%2F23%2F%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7%E5%88%B6%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[话不多说直接进入正题 首先在npm的官网 https://www.npmjs.com/ 注册账号并验证邮箱（必须验证） 第二步，任意位置创建一个包（文件夹) 利用npm做上传与版本管理 再下载安装为全局变量，即可在任意位置使用命令 1npm init -y 包（文件夹）内快速创建一个npm环境 在自动生成的package.json中添加属性：bin 如图：tg表示命令代码 ；app.js为入口函数 编写入口函数注意 一定要加上这个注释，告知系统自己的运行环境是node 编写功能完成后上传注意事项 上传npm不允许使用国内链接，可以先切换回国外的源链接 12nrm ls 查看当前使用的源nrm use npm 切换回官方源 登陆的时候，密码不可见，直接敲就行了 1npm login 进行登陆 登陆成功后便可以上传自己的包 123npm publish 上传npm install 包名 -g 下载tg 使用 注意name避免重复，否则会上传失败 测试使用的时候，如果发现有bug。修改代码过后，一定要修改一下 version版本号。然后从新上传，下载使用。 基本上所有的注意事项都列出来了，就是这么简单。附上自己写的一个demo，新手上代码有点丑陋-功能是在命令执行处新建一个文件夹，里面有点基本的html’文件，新建测试很方便 12345678910111213141516171819202122232425262728293031#!/usr/bin/env nodeconst fs = require('fs');const arguments = process.argv.splice(2,1);var path;arguments.length===1 ? path=arguments.toString() : path='新建文件夹' ; fs.mkdir(path, (err) =&gt; &#123; if (err) throw err; else &#123; fs.mkdir(path+'/css', (err,data) =&gt; &#123; if (err) throw err; fs.readFile(__dirname+'/index.css', 'utf8', (err, data) =&gt; &#123; if (err) throw err; fs.writeFile(path+'/css'+'/index.css', data, (err) =&gt; &#123; if (err) throw err; &#125;); &#125;); &#125;); fs.mkdir(path+'/images', (err) =&gt; &#123; if (err) throw err; &#125;); fs.mkdir(path+'/js', (err) =&gt; &#123; if (err) throw err; &#125;); fs.readFile(__dirname+'/index.html', 'utf8', (err, data) =&gt; &#123; if (err) throw err; fs.writeFile(path+'/index.html', data, (err) =&gt; &#123; if (err) throw err; &#125;); &#125;); &#125; &#125;); 测试使用没有问题 1npm install easycreatehtml -g 也可以直接下载来使用。 markdowm 很生疏啊，头痛! 好了，完]]></content>
