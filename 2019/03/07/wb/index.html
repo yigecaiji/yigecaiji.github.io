@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/03/07/5c80e8000f2ad.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/07/5c80e82f55bef.png">
-<meta property="og:updated_time" content="2019-03-07T10:07:18.784Z">
+<meta property="og:updated_time" content="2019-03-07T10:21:26.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="来做个爱豆微博生成器">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/07/5c80e8000f2ad.jpg">
@@ -406,13 +406,14 @@
       
         <p><img src="https://i.loli.net/2019/03/07/5c80e8000f2ad.jpg" alt></p>
 <a id="more"></a>
-<p>###写点总结<br>尝试用vue写了点功能，好用是好用啊，就是一直忍不住去操作dom，最后写出来的代码有点难看。。</p>
+<h3 id="写点总结"><a href="#写点总结" class="headerlink" title="写点总结"></a>写点总结</h3><p>尝试用vue写了点功能，好用是好用啊，就是一直忍不住去操作dom，最后写出来的代码有点难看。。</p>
 <ol>
 <li>遇到的问题：<ol>
 <li>图标素材—-直接下载微博安卓安装包，修改后缀名为zip，解压缩就能拿到所有素材</li>
 <li>上传头像—-因为是纯前端，没有后台数据库之类的，所以将图片转为base64格式，直接嵌入页面</li>
 <li>修改伪元素属性问题—-开始用window.getComputedStyle()去试，确实能获取到属性，但是结果时只读的。。然后尝试CSSStyleSheet的insertRule来修改，可能是姿势不对，也可能是和VUE冲突，一直报错，放弃，因为伪元素写得有点复杂，直接放弃动态删除再新增伪元素的方案，最后没办法，放弃使用伪元素，再写个div定位过去！</li>
 <li>文本框编辑动态改变文字颜色—-用到了正则，因为一直用插值表达式，所以一直渲染不出来，卡了很久，后来翻文档。。发现了v-html。。哭了  </li>
+<li>页面适配—-手机截图下来的图片都是1000+像素的，随便量一下就是几百像素的宽高，瞬间对自己学的东西产生怀疑，然后直接把F12调成手机IPHNE6页面，直接目测！！写完想改成rem的模式，然后实在不忍直视，还不如让页面自己压缩。就放弃做页面适配了</li>
 </ol>
 </li>
 <li>总结：<ol>
@@ -423,7 +424,7 @@
 </ol>
 </li>
 </ol>
-<p>###页面截图<br><img src="https://i.loli.net/2019/03/07/5c80e82f55bef.png" alt></p>
+<h3 id="页面截图"><a href="#页面截图" class="headerlink" title="页面截图"></a>页面截图</h3><p><img src="https://i.loli.net/2019/03/07/5c80e82f55bef.png" alt></p>
 <ul>
 <li>页面地址：<a href="https://www.tgweb.cn/weibo/">https://www.tgweb.cn/weibo/</a></li>
 <li>源代码：<a href="https://github.com/yigecaiji/weibo" target="_blank" rel="noopener">https://github.com/yigecaiji/weibo</a></li>
@@ -521,8 +522,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -633,6 +643,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写点总结"><span class="nav-number">1.</span> <span class="nav-text">写点总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面截图"><span class="nav-number">2.</span> <span class="nav-text">页面截图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
